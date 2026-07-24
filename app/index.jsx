@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 
 import Logo from "../assets/images/butterfly.png";
+import { Link } from "expo-router";
 
 const Home = () => {
   return (
@@ -25,9 +26,13 @@ const Home = () => {
       >
         Reading List App
       </Text>
-      <View style={styles.card}>
-        <Text>Hello, this is a card.</Text>
-      </View>
+
+      <Link href="/about" style={styles.link}>
+        About page
+      </Link>
+      <Link href="/Contact" style={styles.link}>
+        Contact page
+      </Link>
     </View>
   );
 };
@@ -44,13 +49,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 18,
   },
-  card: {
-    backgroundColor: "#eee",
-    padding: 20,
-    borderRadius: 5,
-    boxShadow: "4px 4px rgba(0,0,0,0,1)",
-  },
   img: {
     marginVertical: 20,
+  },
+  link: {
+    marginVertical: 10,
+    borderBottomWidth: 1,
   },
 });
