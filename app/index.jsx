@@ -6,7 +6,7 @@ import { Link } from "expo-router";
 const Home = () => {
   return (
     <View style={styles.container}>
-      <Image source={Logo} style={styles.img} />
+      <Image source={Logo} style={styles.img} height={200} width={200} />
       {/* multiple source of styles */}
       <Text
         style={[
