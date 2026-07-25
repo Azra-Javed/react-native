@@ -3,6 +3,7 @@
 export const Colors = {
   primary: "#6849a7",
   warning: "#cc475a",
+
   light: {
     text: "#1F2937",
     title: "#111827",

@@ -1,19 +1,18 @@
-import { StyleSheet, Text, useColorScheme, View } from "react-native";
 import { Link } from "expo-router";
-import React from "react";
-import { Colors } from "../constants/Colors";
+import { StyleSheet } from "react-native";
+import ThemedText from "../components/ThemedText";
+import ThemedView from "../components/ThemedView";
 
 const About = () => {
-  const colorScheme = useColorScheme();
-
-  const theme = Colors[colorScheme] ?? Colors.light;
   return (
-    <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <Text style={[styles.title, { color: theme.text }]}>about page</Text>
+    <ThemedView style={[styles.container]}>
+      <ThemedText style={[styles.title]} title={true}>
+        about page
+      </ThemedText>
       <Link href="/" style={styles.link}>
-        Back home
+        <ThemedText> Back home</ThemedText>
       </Link>
-    </View>
+    </ThemedView>
   );
 };
 

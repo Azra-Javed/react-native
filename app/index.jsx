@@ -1,39 +1,30 @@
-import { StyleSheet, Text, View, Image } from "react-native";
-
-import Logo from "../assets/images/butterfly.png";
+import { StyleSheet, Text } from "react-native";
+import ThemedView from "../components/ThemedView";
 import { Link } from "expo-router";
+import ThemedLogo from "../components/ThemedLogo";
+import Spacer from "../components/Spacer";
+import ThemedText from "../components/ThemedText";
 
 const Home = () => {
   return (
-    <View style={styles.container}>
-      <Image source={Logo} style={styles.img} height={200} width={200} />
+    <ThemedView style={styles.container}>
+      <ThemedLogo style={styles.img} height={200} width={200} />
+      <Spacer height={20} />
       {/* multiple source of styles */}
-      <Text
-        style={[
-          styles.title,
-          {
-            color: "purple",
-          },
-        ]}
-      >
+      <ThemedText style={styles.title} title={true}>
         The Number 1
-      </Text>
-      <Text
-        style={{
-          marginTop: 10,
-          marginBottom: 10,
-        }}
-      >
-        Reading List App
-      </Text>
+      </ThemedText>
+      <Spacer height={20} />
+      <ThemedText>Reading List App</ThemedText>
+      <Spacer />
 
       <Link href="/about" style={styles.link}>
-        About page
+        <ThemedText>About page</ThemedText>
       </Link>
       <Link href="/Contact" style={styles.link}>
-        Contact page
+        <ThemedText>Contact Page</ThemedText>
       </Link>
-    </View>
+    </ThemedView>
   );
 };
 
@@ -48,9 +39,6 @@ const styles = StyleSheet.create({
   title: {
     fontWeight: "bold",
     fontSize: 18,
-  },
-  img: {
-    marginVertical: 20,
   },
   link: {
     marginVertical: 10,
