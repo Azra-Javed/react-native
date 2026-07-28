@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, useColorScheme } from "react-native";
 import { Colors } from "../../constants/Colors";
 import { useUser } from "../../hooks/useUser";
+import GuestOnly from "../../components/auth/GuestOnly";
 
 const RootLayout = () => {
   const colorScheme = useColorScheme();
@@ -13,7 +14,7 @@ const RootLayout = () => {
   console.log(user);
 
   return (
-    <>
+    <GuestOnly>
       <StatusBar value="auto" />
       <Stack
         screenOptions={{
@@ -21,7 +22,7 @@ const RootLayout = () => {
           animation: "none",
         }}
       />
-    </>
+    </GuestOnly>
   );
 };
 
