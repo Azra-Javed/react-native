@@ -1,13 +1,9 @@
 import { View, useColorScheme } from "react-native";
 import { Colors } from "../constants/Colors";
-import {
-  SafeAreaView,
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function ThemedView({ style, safe = false, ...props }) {
   const colorScheme = useColorScheme();
-  console.log(colorScheme);
 
   //fallback theme -> light
   const theme = Colors[colorScheme] ?? Colors.light;
