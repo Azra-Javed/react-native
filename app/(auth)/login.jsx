@@ -14,13 +14,17 @@ import { Colors } from "../../constants/Colors";
 import ThemedButton from "../../components/ThemedButton";
 import ThemedTextInput from "../../components/ThemedTextInput";
 import { useState } from "react";
+import { useUser } from "../../hooks/useUser";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState();
 
+  const { user } = useUser();
+
   const handleSubmit = () => {
     console.log("login form submited by: ", email, " ", password);
+    console.log("currentUser", user);
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
