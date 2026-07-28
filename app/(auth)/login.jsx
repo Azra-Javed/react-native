@@ -18,13 +18,16 @@ import { useUser } from "../../hooks/useUser";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState();
+  const [password, setPassword] = useState("");
 
-  const { user } = useUser();
+  const { user, login } = useUser();
 
-  const handleSubmit = () => {
-    console.log("login form submited by: ", email, " ", password);
-    console.log("currentUser", user);
+  const handleSubmit = async () => {
+    try {
+      await login(email, password);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -37,7 +40,7 @@ const Login = () => {
         <ThemedTextInput
           placeholder="Email"
           style={{ width: "80%", marginBottom: 20 }}
-          keyboardType="email.address"
+          keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
         />

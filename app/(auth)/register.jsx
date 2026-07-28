@@ -12,12 +12,20 @@ import { Link } from "expo-router";
 import ThemedButton from "../../components/ThemedButton";
 import { useState } from "react";
 import ThemedTextInput from "../../components/ThemedTextInput";
+import { useUser } from "../../hooks/useUser";
 
-const register = () => {
+const Register = () => {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState();
-  const handleSubmit = () => {
-    console.log("email and password", email, password);
+  const [password, setPassword] = useState("");
+
+  const { register } = useUser();
+  const handleSubmit = async () => {
+    console.log(email, password);
+    try {
+      await register(email, password);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -30,7 +38,7 @@ const register = () => {
         <ThemedTextInput
           placeholder="Email"
           style={{ width: "80%", marginBottom: 20 }}
-          keyboardType="email.address"
+          keyboardType="email-address"
           value={email}
           onChangeText={setEmail}
         />
@@ -55,7 +63,7 @@ const register = () => {
   );
 };
 
-export default register;
+export default Register;
 
 const styles = StyleSheet.create({
   container: {
