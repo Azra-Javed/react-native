@@ -1,4 +1,5 @@
 import {
+  ActivityIndicator,
   Keyboard,
   Pressable,
   StyleSheet,
@@ -15,6 +16,7 @@ import ThemedButton from "../../components/ThemedButton";
 import ThemedTextInput from "../../components/ThemedTextInput";
 import { useState } from "react";
 import { useUser } from "../../hooks/useUser";
+import ThemedLoader from "../../components/ThemedLoader";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -38,7 +40,6 @@ const Login = () => {
         <ThemedText style={styles.title} title={true}>
           Login to Your account
         </ThemedText>
-
         <ThemedTextInput
           placeholder="Email"
           style={{ width: "80%", marginBottom: 20 }}
@@ -46,7 +47,6 @@ const Login = () => {
           value={email}
           onChangeText={setEmail}
         />
-
         <ThemedTextInput
           placeholder="Password"
           style={{ width: "80%", marginBottom: 20 }}
@@ -57,7 +57,6 @@ const Login = () => {
         <ThemedButton onPress={handleSubmit}>
           <Text style={{ color: "#f2f2f2" }}>Login</Text>
         </ThemedButton>
-
         {error && <Text style={styles.error}>{error}</Text>}
         <Spacer height={100} />
         <Link href="/register">
