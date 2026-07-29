@@ -18,7 +18,7 @@ export function BooksProvider({ children }) {
         [Query.equal("userId", user.$id)],
       );
 
-      setBooks(response.documenst);
+      setBooks(response.documents);
       console.log(response.documents);
     } catch (error) {
       console.error(error.message);
